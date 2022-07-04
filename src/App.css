@@ -16,9 +16,10 @@
   line-height: 1.5;
 }
 .ant-layout-sider {
-  color: rgb(65, 109, 255);
+  color: #416dff;
   height: 100%;
-  line-height: 120px;
+  width:max-content;
+  line-height: 3em ;
   background: #e3d5fd;
   text-align: justify;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;

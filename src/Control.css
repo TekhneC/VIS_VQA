@@ -1,0 +1,12 @@
+
+
+.Buttons li{
+    display:inline;
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+}
+
+.Buttons ul{
+    list-style: none;
+}
