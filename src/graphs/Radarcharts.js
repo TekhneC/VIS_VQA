@@ -2,8 +2,20 @@ import React from "react";
 import * as echarts from 'echarts/core';
 import { TitleComponent, LegendComponent } from 'echarts/components';
 import { RadarChart } from 'echarts/charts';
+import {
+    TooltipComponent,
+    GridComponent
+} from 'echarts/components';
 import { CanvasRenderer } from 'echarts/renderers';
-import { render } from "react-dom";
+
+var RadarCharts;
+
+echarts.use([
+    TooltipComponent,
+    GridComponent,
+    LegendComponent,
+    CanvasRenderer
+  ]);
 
 export class Radar extends React.Component{
     
@@ -15,12 +27,17 @@ export class Radar extends React.Component{
     }
 
     componentDidMount(){
+        window.addEventListener("resize",() => {
+            if(RadarCharts){
+                RadarCharts.resize()
+            }
+        })
         setTimeout(() => {this.getOption()})
     }
 
     getOption = () => {
-        var chartDom = document.getElementById('Radar');
-        var RadarCharts = echarts.init(chartDom,null,{width :150 ,height: 200 });
+        var chartDom = document.getElementById(this.props.id);
+        RadarCharts = echarts.init(chartDom,null,{width :150 ,height: 200 });
         var option;
         option = {
             title: {
@@ -59,7 +76,7 @@ export class Radar extends React.Component{
    
     render(){
         return (
-            <div id = "Radar" style={{height: "200px",width: "100%"}}></div>
+            <div id = {this.props.id}></div>
         )
     }
 }
