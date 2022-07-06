@@ -1,6 +1,6 @@
 import React from "react";
 import * as echarts from 'echarts/core';
-import { VisualMapComponent } from 'echarts/components';
+import { DataZoomInsideComponent, VisualMapComponent } from 'echarts/components';
 import { SunburstChart } from 'echarts/charts';
 import { CanvasRenderer } from 'echarts/renderers';
 
@@ -19,6 +19,24 @@ export class SunBurst extends React.Component{
     componentDidMount(){
         setTimeout(() => {this.getOption()})
     }
+
+    dataInit(){
+      var Data = [];
+      var Word1 = [];
+      var Word2 = [];
+      var Word3 = [];
+      var Remains = [];
+      for(var o in this.props.data){
+        if(Word1.indexOf(this.props.data[o].FirstWord === -1)){
+          Word1.push(this.props.data[o].FirstWord);
+          Word3.push(this.props.data[o].ThirdWord);
+          Data.push({word:this.props.data[o].FirstWord,child:[{wird:this.props.data[o].SecondWord,child:Word3}]});
+        }
+        else if(Word1[Word1.indexOf(this.props.data[o].FirstWord)].indexOf(this.props.data[o].SecondWord) == -1){
+          w
+        }
+      }
+    } 
 
     getOption = () => {
         var chartDom = document.getElementById(this.props.id);
@@ -146,6 +164,7 @@ export class SunBurst extends React.Component{
     }
    
     render(){
+        this.dataInit();
         return (
             <div id = {this.props.id} style={{height: "200px",width: "100%"}}></div>
         )

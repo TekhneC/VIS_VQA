@@ -8,6 +8,8 @@ import 'echarts-wordcloud';
 
 const colorList = ['#5470c6', '#91cc75', '#fac858', '#ee6666', '#73c0de', '#3ba272', '#fc8452', '#9a60b4', '#ea7ccc']; //重新制定色系
 
+var CloudCharts;
+
 export class WordsClouds extends React.Component{
     constructor(props){
         super(props);
@@ -31,15 +33,23 @@ export class WordsClouds extends React.Component{
     }
 
     componentDidMount(){
+        if(CloudCharts){
+            CloudCharts.resize()
+        }
         setTimeout(() => {this.getOption()})
     }
 
     getOption = () => {
         var chartDom = document.getElementById(this.props.id);
-        var CloudCharts = echarts.init(chartDom,null,{width :150 ,height: 200 });
+        CloudCharts = echarts.init(chartDom,null,{width :150 ,height: 200 });
         var option;
         option = {
             tooltip: {},
+            toolbox: {
+              feature: {
+                saveAsImage: {}
+              }
+            },
             series: [ {
                 type: 'wordCloud',
                 gridSize: 2,

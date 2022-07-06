@@ -26,25 +26,7 @@ export class App extends React.Component{
       isQuesPes:1
     }
   }
-/*
-  getData(){
-    fetch('./Abstract.json', {
-      method: "GET",
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-        },
-    })
-    .then(response => response.json())//解析为Promise
-    .then(data => {
-    
-    this.setState({dataGet:1,totalData: data})  ////赋值到本地数据
-    console.log(this.state.totalData)
-   
-    })
-  }
-*/
-
+  
   ShowComponent(block){
       this.setState({
         overviewRender:block
@@ -59,11 +41,11 @@ export class App extends React.Component{
 
   renderComponent = ()=>{
     switch(this.state.overviewRender){
-      case 'QuesPes': return <QuesPes/>
-      case 'AnsPes' :return <AnsPes/>
-      case 'QuesComp' : return <QuesComp/>
-      case 'AnsComp' : return <AnsComp/>
-      default : return <QuesPes/>
+      case 'QuesPes': return <QuesPes data = {this.state.totalData}/>
+      case 'AnsPes' :return <AnsPes data = {this.state.totalData}/>
+      case 'QuesComp' : return <QuesComp data = {this.state.totalData}/>
+      case 'AnsComp' : return <AnsComp data = {this.state.totalData}/>
+      default : return <QuesPes data = {this.state.props}/>
     }
   }
 

@@ -1,5 +1,9 @@
 @import '../node_modules/antd/dist/antd.css';
 
+#Apps{
+  height: 100%;
+  width: 100%;
+}
 
 .ant-layout-header,
 .ant-layout-footer {

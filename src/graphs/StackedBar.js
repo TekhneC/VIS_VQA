@@ -4,18 +4,20 @@ import {
   TooltipComponent,
   GridComponent,
   LegendComponent,
-  MarkLineComponent
+  MarkLineComponent,
+  ToolboxComponent
 } from 'echarts/components';
 import { BarChart } from 'echarts/charts';
 import { CanvasRenderer } from 'echarts/renderers';
 
 echarts.use([
-  TooltipComponent,
-  GridComponent,
-  LegendComponent,
-  MarkLineComponent,
-  BarChart,
-  CanvasRenderer
+    ToolboxComponent,
+    TooltipComponent,
+    GridComponent,
+    LegendComponent,
+    MarkLineComponent,
+    BarChart,
+    CanvasRenderer
 ]);
 
 var BarCharts;
@@ -31,6 +33,8 @@ export class StackedBar extends React.Component{
     componentDidMount(){
         window.addEventListener("resize",() => {
             if(BarCharts){
+                var len = document.getElementById("Details").style.height;
+                document.getElementById(this.props.id).style.height = (len / 2) + 'px';
                 BarCharts.resize()
             }
         })
@@ -39,7 +43,7 @@ export class StackedBar extends React.Component{
 
     getOption = () => {
         var chartDom = document.getElementById(this.props.id);
-        BarCharts = echarts.init(chartDom,null,{width :150 ,height: 200 });
+        BarCharts = echarts.init(chartDom);
         var option;
         option = {
             tooltip: {
@@ -66,6 +70,11 @@ export class StackedBar extends React.Component{
                 type: 'value'
               }
             ],
+            toolbox: {
+              feature: {
+                saveAsImage: {}
+              }
+            },
             series: [
               {
                 name: 'Direct',
@@ -154,7 +163,7 @@ export class StackedBar extends React.Component{
    
     render(){
         return (
-            <div id = {this.props.id}></div>
+            <div id = {this.props.id} style={{height: 200,width: 400}}></div>
         )
     }
 }

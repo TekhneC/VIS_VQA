@@ -4,25 +4,49 @@ import { GridComponent } from 'echarts/components';
 import { LineChart } from 'echarts/charts';
 import { UniversalTransition } from 'echarts/features';
 import { CanvasRenderer } from 'echarts/renderers';
+import { ToolboxComponent } from 'echarts/components';
+import {$,jQuery} from 'jquery';
 
-echarts.use([GridComponent, LineChart, CanvasRenderer, UniversalTransition]);
+echarts.use([GridComponent,ToolboxComponent, LineChart, CanvasRenderer, UniversalTransition]);
+
+var LineCharts;
+var names = [];
+var series = [];
 
 export class Line extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            
+            xAxisName:"question_id",
+            yAxisName:"question_len"
         }
     }
 
     componentDidMount(){
-        setTimeout(() => {this.getOption()})
+        if(LineCharts){
+            LineCharts.resize()
+        }
+        setTimeout(() => {
+          this.initData();  
+          this.getOption();
+        })
+    }
+
+    initData = () => {      
+      for(var o in this.props.data){
+        names.push(this.props.data[o].question_id);
+        series.push(this.props.data[o].question_len);
+      }
     }
 
     getOption = () => {
         var chartDom = document.getElementById(this.props.id);
-        var LineCharts = echarts.init(chartDom,null,{width :150 ,height: 200 });
+        LineCharts = echarts.init(chartDom,null,{width :250 ,height: 200 });
         var option;
+
+//        names.push(data.question_id);
+  //      series.push(data.question_len);
+
         option = {
             title: {
               text: 'Stacked Line'
@@ -30,60 +54,41 @@ export class Line extends React.Component{
             tooltip: {
               trigger: 'axis'
             },
+
             legend: {
-              data: ['Email', 'Union Ads', 'Video Ads', 'Direct', 'Search Engine']
+              data: ['Len']
             },
             grid: {
               left: '3%',
               right: '4%',
               bottom: '3%',
               containLabel: true
-            },
+            }, 
             toolbox: {
-              feature: {
-                saveAsImage: {}
-              }
+                show: true,
+                feature: {
+                    mark: { show: true },
+                    dataView: { show: true, readOnly: false },
+                    magicType: { show: true, type: ['line', 'bar'] },
+                    restore: { show: true },
+                    saveAsImage: { show: true }
+                }
             },
             xAxis: {
               type: 'category',
               boundaryGap: false,
-              data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+              data: names
             },
             yAxis: {
               type: 'value'
             },
-            series: [
+            series:[
               {
                 name: 'Email',
                 type: 'line',
                 stack: 'Total',
-                data: [120, 132, 101, 134, 90, 230, 210]
-              },
-              {
-                name: 'Union Ads',
-                type: 'line',
-                stack: 'Total',
-                data: [220, 182, 191, 234, 290, 330, 310]
-              },
-              {
-                name: 'Video Ads',
-                type: 'line',
-                stack: 'Total',
-                data: [150, 232, 201, 154, 190, 330, 410]
-              },
-              {
-                name: 'Direct',
-                type: 'line',
-                stack: 'Total',
-                data: [320, 332, 301, 334, 390, 330, 320]
-              },
-              {
-                name: 'Search Engine',
-                type: 'line',
-                stack: 'Total',
-                data: [820, 932, 901, 934, 1290, 1330, 1320]
-              }
-            ]
+                data: series
+              }]
           };
         option && LineCharts.setOption(option);
     }

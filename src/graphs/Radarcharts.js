@@ -4,7 +4,8 @@ import { TitleComponent, LegendComponent } from 'echarts/components';
 import { RadarChart } from 'echarts/charts';
 import {
     TooltipComponent,
-    GridComponent
+    GridComponent,
+    ToolboxComponent 
 } from 'echarts/components';
 import { CanvasRenderer } from 'echarts/renderers';
 
@@ -12,6 +13,7 @@ var RadarCharts;
 
 echarts.use([
     TooltipComponent,
+    ToolboxComponent,
     GridComponent,
     LegendComponent,
     CanvasRenderer
@@ -37,7 +39,7 @@ export class Radar extends React.Component{
 
     getOption = () => {
         var chartDom = document.getElementById(this.props.id);
-        RadarCharts = echarts.init(chartDom,null,{width :150 ,height: 200 });
+        RadarCharts = echarts.init(chartDom,null,{width :250 ,height: 200 });
         var option;
         option = {
             title: {
@@ -56,6 +58,11 @@ export class Radar extends React.Component{
                     { name: 'Development', max: 52000 },
                     { name: 'Marketing', max: 25000 }
                     ]
+                },
+                toolbox: {
+                  feature: {
+                    saveAsImage: {}
+                  }
                 },
                 series: [
                     {
