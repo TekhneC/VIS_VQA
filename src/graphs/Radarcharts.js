@@ -73,7 +73,8 @@ export class Radar extends React.Component{
                     { name: 'Information Technology', max: 30000 },
                     { name: 'Customer Support', max: 38000 },
                     { name: 'Development', max: 52000 },
-                    { name: 'Marketing', max: 25000 }
+                    { name: 'M', max: 25000 },
+                    { name: 'Ma' }
                     ]
                 },
                 toolbox: {

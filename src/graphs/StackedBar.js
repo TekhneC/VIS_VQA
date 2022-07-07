@@ -7,7 +7,8 @@ import {
   MarkLineComponent,
   ToolboxComponent
 } from 'echarts/components';
-import { BarChart } from 'echarts/charts';
+import { BarChart, LineChart } from 'echarts/charts';
+import { UniversalTransition } from 'echarts/features';
 import { CanvasRenderer } from 'echarts/renderers';
 
 echarts.use([
@@ -17,7 +18,9 @@ echarts.use([
     LegendComponent,
     MarkLineComponent,
     BarChart,
-    CanvasRenderer
+    LineChart,
+    CanvasRenderer,
+    UniversalTransition
 ]);
 
 var BarCharts;
@@ -77,12 +80,15 @@ export class StackedBar extends React.Component{
             xAxis: [
               {
                 type: 'category',
-                data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+                data: ['0.1', '0.2', '0.3', '0.4', '0.5', '0.6', '0.7','0.8','0.9','1.0']
               }
             ],
             yAxis: [
               {
                 type: 'value'
+              },
+              {
+                type:'value'
               }
             ],
             toolbox: {
@@ -90,86 +96,42 @@ export class StackedBar extends React.Component{
                 saveAsImage: {}
               }
             },
-            series: [
-              {
-                name: 'Direct',
+            series: 
+              [
+                {
+                    name: '<3',
+                    type: 'bar',
+                    stack:'x',
+                    emphasis: {
+                      focus: 'series'
+                    },
+                    data: [0.15,0.68125,  0.6360601,0.5198188,0.435185185,0.332647877,0.220175439,0.125931738,0.064718759,0.022431544]
+                  },
+                  {
+                    name: '3~7',
+                    type: 'bar',
+                    stack:'x',
+                    emphasis: {
+                      focus: 'series'
+                    },
+                    data: [0.85,0.31875,0.358931553,0.469988675,0.542292292,0.599491956,0.641102757,0.620831699,0.498889629,0.264051125]
+                  },
+                
+                {
+                name: '>7',
                 type: 'bar',
+                stack:'x',
                 emphasis: {
                   focus: 'series'
                 },
-                data: [320, 332, 301, 334, 390, 330, 320]
+                data: [0,0,0.005008347,0.010192525,0.022522523,0.067860167,0.138721805,0.253236563,0.436391612,0.713517331]
               },
               {
-                name: 'Email',
-                type: 'bar',
-                stack: 'Ad',
-                emphasis: {
-                  focus: 'series'
-                },
-                data: [120, 132, 101, 134, 90, 230, 210]
-              },
-              {
-                name: 'Union Ads',
-                type: 'bar',
-                stack: 'Ad',
-                emphasis: {
-                  focus: 'series'
-                },
-                data: [220, 182, 191, 234, 290, 330, 310]
-              },
-              {
-                name: 'Video Ads',
-                type: 'bar',
-                stack: 'Ad',
-                emphasis: {
-                  focus: 'series'
-                },
-                data: [150, 232, 201, 154, 190, 330, 410]
-              },
-              {
-                name: 'Search Engine',
-                type: 'bar',
-                data: [862, 1018, 964, 1026, 1679, 1600, 1570],
-                emphasis: {
-                  focus: 'series'
-                }
-              },
-              {
-                name: 'Baidu',
-                type: 'bar',
-                barWidth: 5,
-                stack: 'Search Engine',
-                emphasis: {
-                  focus: 'series'
-                },
-                data: [620, 732, 701, 734, 1090, 1130, 1120]
-              },
-              {
-                name: 'Google',
-                type: 'bar',
-                stack: 'Search Engine',
-                emphasis: {
-                  focus: 'series'
-                },
-                data: [120, 132, 101, 134, 290, 230, 220]
-              },
-              {
-                name: 'Bing',
-                type: 'bar',
-                stack: 'Search Engine',
-                emphasis: {
-                  focus: 'series'
-                },
-                data: [60, 72, 71, 74, 190, 130, 110]
-              },
-              {
-                name: 'Others',
-                type: 'bar',
-                stack: 'Search Engine',
-                emphasis: {
-                  focus: 'series'
-                },
-                data: [62, 82, 91, 84, 109, 110, 120]
+                name: 'Question Quantity',
+                type: 'line',
+                yAxisIndex: 1,
+                data: [
+                  20,160,599,1766,3996,8267,15960,30588,63042,147248]
               }
             ]
           };
