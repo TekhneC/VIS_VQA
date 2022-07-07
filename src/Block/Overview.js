@@ -4,16 +4,15 @@ import { StackedBar } from "../graphs/StackedBar";
 import { SunBurst } from "../graphs/Sunburst";
 import React from "react";
 import ReactDOM from 'react-dom/client';
-import { data } from "jquery";
-import {$,jQuery} from 'jquery';
-
+import SundataReal from '../Data/SunburstReal.json';
+import SundataAbs from '../Data/SunburstAbstract.json';
+import './Overview.css';
 
 export class QuesPes extends React.Component{
     render(){
         return(
         <div>
-            <SunBurst id = "QuesSun" data = {this.props.data}></SunBurst>
-            <Line id = "QuesLine" data = {this.props.data}></Line>
+            <SunBurst id = "SunQues" data = {this.props.SunburstData} max = {97846} title = "问题首三词分布"></SunBurst>
         </div>
         );
     }
@@ -30,7 +29,10 @@ export class AnsPes extends React.Component{
 export class QuesComp extends React.Component{
     render(){
         return (
-            <StackedBar id = "RealBar" data = {this.props.data}></StackedBar>
+            <div id = "QuesComp">
+            <SunBurst id = "SunQuesCompReal" data = {SundataReal} max = {87868} title = "Real Image 首三词"></SunBurst>
+            <SunBurst id = "SunQuesCompAbs" data = {SundataAbs} max = {11691}  title = "Abstract Image 首三词"></SunBurst>
+            </div>
         )
     }
 }
