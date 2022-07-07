@@ -57,7 +57,7 @@ export class StackedBar extends React.Component{
             },
             title: {
               text: this.props.title,
-              subtext: "出于显示效果和性能考虑，\n占比低于0.05%的词语不予以显示。",
+              subtext: '',
               textStyle: {
                 fontSize: 16,
                 fontFamily:['STZhongsong','monospace','Impact'],
@@ -80,7 +80,7 @@ export class StackedBar extends React.Component{
             xAxis: [
               {
                 type: 'category',
-                data: ['0.1', '0.2', '0.3', '0.4', '0.5', '0.6', '0.7','0.8','0.9','1.0']
+                data: this.props.xdata
               }
             ],
             yAxis: [
@@ -90,50 +90,18 @@ export class StackedBar extends React.Component{
               {
                 type:'value'
               }
-            ],
+            ], 
             toolbox: {
-              feature: {
-                saveAsImage: {}
-              }
+                show: true,
+                feature: {
+                    mark: { show: true },
+                    dataView: { show: true, readOnly: false },
+                    magicType: { show: true, type: ['line', 'bar'] },
+                    restore: { show: true },
+                    saveAsImage: { show: true }
+                }
             },
-            series: 
-              [
-                {
-                    name: '<3',
-                    type: 'bar',
-                    stack:'x',
-                    emphasis: {
-                      focus: 'series'
-                    },
-                    data: [0.15,0.68125,  0.6360601,0.5198188,0.435185185,0.332647877,0.220175439,0.125931738,0.064718759,0.022431544]
-                  },
-                  {
-                    name: '3~7',
-                    type: 'bar',
-                    stack:'x',
-                    emphasis: {
-                      focus: 'series'
-                    },
-                    data: [0.85,0.31875,0.358931553,0.469988675,0.542292292,0.599491956,0.641102757,0.620831699,0.498889629,0.264051125]
-                  },
-                
-                {
-                name: '>7',
-                type: 'bar',
-                stack:'x',
-                emphasis: {
-                  focus: 'series'
-                },
-                data: [0,0,0.005008347,0.010192525,0.022522523,0.067860167,0.138721805,0.253236563,0.436391612,0.713517331]
-              },
-              {
-                name: 'Question Quantity',
-                type: 'line',
-                yAxisIndex: 1,
-                data: [
-                  20,160,599,1766,3996,8267,15960,30588,63042,147248]
-              }
-            ]
+            series: this.props.series
           };
         option && BarCharts.setOption(option);
     }

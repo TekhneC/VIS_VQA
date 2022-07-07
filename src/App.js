@@ -72,7 +72,7 @@ export class App extends React.Component{
   renderComponent = ()=>{
     switch(this.state.overviewRender){
       case 'QuesPes': return <QuesPes SunburstData = {this.state.totalQuesData}/>
-      case 'AnsPes' :return <AnsPes data = {this.state.totalData}/>
+      case 'AnsPes' :return <AnsPes/>
       case 'QuesComp1' : return <QuesComp1 data = {this.state.QuesRealData}/>
       case 'QuesComp2' : return <QuesComp2 data/>
       case 'AnsComp' : return <AnsComp data = {this.state.totalData}/>
@@ -103,9 +103,7 @@ export class App extends React.Component{
           <Layout>
             <Header><span>VQA数据可视化分析</span></Header>
             <Content id = "Overview">
-            <WordsClouds id='wordclouds' style='float=left'></WordsClouds>
               {this.renderComponent()}
-             
             </Content>
             <Content id = "Detail">
 

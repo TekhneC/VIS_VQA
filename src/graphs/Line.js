@@ -41,7 +41,7 @@ export class Line extends React.Component{
 
     getOption = () => {
         var chartDom = document.getElementById(this.props.id);
-        LineCharts = echarts.init(chartDom,null,{width :250 ,height: 200 });
+        LineCharts = echarts.init(chartDom,null,{width :550 ,height: 300 });
         var option;
 
 //        names.push(data.question_id);
@@ -50,7 +50,7 @@ export class Line extends React.Component{
         option = {
           title: {
           text: this.props.title,
-          subtext: "出于显示效果和性能考虑，\n占比低于0.05%的词语不予以显示。",
+          subtext: "",
           textStyle: {
             fontSize: 16,
             fontFamily:['STZhongsong','monospace','Impact'],
@@ -76,7 +76,10 @@ export class Line extends React.Component{
             }
         ],
             tooltip: {
-              trigger: 'axis'
+              trigger: 'axis',
+              axisPointer:{
+                type:'cross'
+              }
             },
 
             legend: {
@@ -101,19 +104,12 @@ export class Line extends React.Component{
             xAxis: {
               type: 'category',
               boundaryGap: false,
-              data: ['2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19']
+              data: this.props.xdata
             },
             yAxis: {
               type: 'value'
             },
-            series:[
-              {
-                name: 'length',
-                type: 'line',
-                stack: 'Total',
-                data: [1,1498,5366,8289,6336,5760,3562,2001,1179,625,315,193,81,55,40,11,9,7
-                  ]//abstarct
-              }]
+            series:this.props.series
           };
         option && LineCharts.setOption(option);
     }

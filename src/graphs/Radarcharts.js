@@ -39,7 +39,7 @@ export class Radar extends React.Component{
 
     getOption = () => {
         var chartDom = document.getElementById(this.props.id);
-        RadarCharts = echarts.init(chartDom,null,{width :250 ,height: 200 });
+        RadarCharts = echarts.init(chartDom,null,{width :200 ,height: 200});
         var option;
         option = {  
             title: {
