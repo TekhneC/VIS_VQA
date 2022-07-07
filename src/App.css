@@ -8,7 +8,7 @@
 .ant-layout-header,
 .ant-layout-footer {
   color: rgb(255, 255, 255);
-  background: rgb(65, 109, 255);
+  background: #1D89FF;
 }
 [data-theme="dark"] .ant-layout-header {
   background: #6aa0c7;
@@ -24,7 +24,7 @@
   height: 100%;
   width: 300px;
   line-height: 3em ;
-  background: #e3d5fd;
+  background: #ffee57;
   text-align: justify;
   font-family: STZhongsong,monospace,Impact,'Lucida Sans', 'Lucida Sans Regular','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
   padding: 2%;

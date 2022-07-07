@@ -1,9 +1,9 @@
 import './App.css';
-import {Layout,Divider,Button,Input,Space} from 'antd';
+import {Layout,Divider,Button,Input,Space, Dropdown, Menu} from 'antd';
 import React from 'react';
 import { AudioOutlined } from '@ant-design/icons';
 import { Assist } from './Block/Assist';
-import { AnsPes,QuesPes,AnsComp,QuesComp } from './Block/Overview';
+import { AnsPes,QuesPes,AnsComp,QuesComp1,QuesComp2 } from './Block/Overview';
 import{ Detail } from './Block/Detail';
 import data from "./Data/Abstract.json";
 
@@ -14,11 +14,36 @@ import QuesTotalData from './Data/SunburstTot.json';
 const { Header, Footer, Sider, Content } = Layout;
 const { Search } = Input;
 const onSearch = (value) => console.log(value);
+const Pes = ['QuesComp1','QuesComp2','AnsComp'];
 
 export class App extends React.Component{
   constructor(props){
     super(props)
     this.state={
+      menu:(
+        <Menu
+          onClick={(e) => {
+            this.setState({
+              overviewRender:Pes[e.key]
+            });
+            }
+          }
+          items={[
+            {
+              key: '0',
+              label: '首三词分布对比',
+            },
+            {
+              key: '1',
+              label: '问题长度与词云对比',
+            },
+            {
+              key: '2',
+              label: '答案数据对比',
+            },
+          ]}
+        />
+      ),
       dataGet: 0,
       totalData: data,
       totalQuesData: QuesTotalData,
@@ -45,7 +70,8 @@ export class App extends React.Component{
     switch(this.state.overviewRender){
       case 'QuesPes': return <QuesPes SunburstData = {this.state.totalQuesData}/>
       case 'AnsPes' :return <AnsPes data = {this.state.totalData}/>
-      case 'QuesComp' : return <QuesComp data = {this.state.QuesRealData}/>
+      case 'QuesComp1' : return <QuesComp1 data = {this.state.QuesRealData}/>
+      case 'QuesComp2' : return <QuesComp2 data/>
       case 'AnsComp' : return <AnsComp data = {this.state.totalData}/>
       default : return <QuesPes data = {this.state.totalData}/>
     }
@@ -63,7 +89,7 @@ export class App extends React.Component{
               <Search id = "search" placeholder="输入以搜索数据~" onSearch={onSearch} enterButton />
               <Button id = "Ques" block = "True" onClick={() => {this.PesSet(1);this.ShowComponent('QuesPes')}}>问题视角</Button>
               <Button id = "Ans" block = "True" onClick={() => {this.PesSet(0);this.ShowComponent('AnsPes')}}>答案视角</Button>
-              <Button id = "Comp" block = "True" onClick={() => {this.state.isQuesPes ? this.ShowComponent('QuesComp'):this.ShowComponent('AnsComp')}}>对比数据</Button>
+              <Dropdown.Button overlay={this.state.menu}>Real & AbstractImages对比</Dropdown.Button>
             </div>
             <Divider>辅助面板</Divider>
             <div id = "Assist">

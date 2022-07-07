@@ -48,9 +48,33 @@ export class Line extends React.Component{
   //      series.push(data.question_len);
 
         option = {
-            title: {
-              text: 'Stacked Line'
-            },
+          title: {
+          text: this.props.title,
+          subtext: "出于显示效果和性能考虑，\n占比低于0.05%的词语不予以显示。",
+          textStyle: {
+            fontSize: 16,
+            fontFamily:['STZhongsong','monospace','Impact'],
+            align: 'center',
+            fontWeight: 'bolder' ,
+            color: '#416dff',
+          },
+          subtextStyle: {
+              fontFamily:['STZhongsong','monospace','Impact'],
+              align: 'center'
+            }
+          },
+          textStyle:{
+            fontFamily:['STZhongsong','monospace','Impact'],
+            fontWeight: 'bolder' ,
+            color: '#1C5ABE'
+          },
+          dataZoom: [
+            {   
+                type: 'slider', // 这个 dataZoom 组件是 slider 型 dataZoom 组件
+                start: 10,      // 左边在 10% 的位置。
+                end: 60         // 右边在 60% 的位置。
+            }
+        ],
             tooltip: {
               trigger: 'axis'
             },

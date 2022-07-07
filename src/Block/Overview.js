@@ -7,6 +7,7 @@ import ReactDOM from 'react-dom/client';
 import SundataReal from '../Data/SunburstReal.json';
 import SundataAbs from '../Data/SunburstAbstract.json';
 import './Overview.css';
+import { WordsClouds } from "../graphs/WordsCloud";
 
 export class QuesPes extends React.Component{
     render(){
@@ -26,12 +27,23 @@ export class AnsPes extends React.Component{
     }
 }
 
-export class QuesComp extends React.Component{
+export class QuesComp1 extends React.Component{
     render(){
         return (
-            <div id = "QuesComp">
+            <div id = "QuesComp1">
             <SunBurst id = "SunQuesCompReal" data = {SundataReal} max = {87868} title = "Real Image 首三词"></SunBurst>
             <SunBurst id = "SunQuesCompAbs" data = {SundataAbs} max = {11691}  title = "Abstract Image 首三词"></SunBurst>
+            </div>
+        )
+    }
+}
+
+export class QuesComp2 extends React.Component{
+    render(){
+        return (
+            <div id = "QuesComp2">
+                <StackedBar id = "BarQuesComp"></StackedBar>
+                <WordsClouds id = "CloudQuesComp"></WordsClouds>
             </div>
         )
     }
