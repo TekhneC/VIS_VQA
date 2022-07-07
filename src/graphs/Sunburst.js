@@ -33,7 +33,7 @@ export class SunBurst extends React.Component{
           Data.push({word:this.props.data[o].FirstWord,child:[{wird:this.props.data[o].SecondWord,child:Word3}]});
         }
         else if(Word1[Word1.indexOf(this.props.data[o].FirstWord)].indexOf(this.props.data[o].SecondWord) == -1){
-          w
+          
         }
       }
     } 

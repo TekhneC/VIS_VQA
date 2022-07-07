@@ -8,7 +8,7 @@ import{ Detail } from './Block/Detail';
 import { WordsClouds } from './graphs/WordsCloud';
 import { StackedBar } from './graphs/StackedBar';
 import * as echarts from 'echarts/core';
-import {$,jQuery} from 'jquery';
+
 import data from "./Data/Abstract.json";
 
 const { Header, Footer, Sider, Content } = Layout;
@@ -66,14 +66,20 @@ export class App extends React.Component{
             <div id = "Assist">
             <Assist Data = {this.state.totalData}></Assist>
             </div>
+            
           </Sider>
           <Layout>
             <Header><span>VQA数据可视化分析</span></Header>
             <Content id = "Overview">
+            <WordsClouds id='wordclouds' style='float=left'></WordsClouds>
               {this.renderComponent()}
+             
             </Content>
             <Content id = "Detail">
-              <Detail Data = {this.state.totalData}></Detail></Content>
+
+            <Detail Data = {this.state.totalData}></Detail>
+
+            </Content>
             <Footer ><div id = "footer"></div></Footer>
           </Layout>
         </Layout>

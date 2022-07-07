@@ -5,7 +5,7 @@ import { LineChart } from 'echarts/charts';
 import { UniversalTransition } from 'echarts/features';
 import { CanvasRenderer } from 'echarts/renderers';
 import { ToolboxComponent } from 'echarts/components';
-import {$,jQuery} from 'jquery';
+
 
 echarts.use([GridComponent,ToolboxComponent, LineChart, CanvasRenderer, UniversalTransition]);
 
@@ -77,17 +77,18 @@ export class Line extends React.Component{
             xAxis: {
               type: 'category',
               boundaryGap: false,
-              data: names
+              data: ['2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19']
             },
             yAxis: {
               type: 'value'
             },
             series:[
               {
-                name: 'Email',
+                name: 'length',
                 type: 'line',
                 stack: 'Total',
-                data: series
+                data: [1,1498,5366,8289,6336,5760,3562,2001,1179,625,315,193,81,55,40,11,9,7
+                  ]//abstarct
               }]
           };
         option && LineCharts.setOption(option);

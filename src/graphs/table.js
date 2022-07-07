@@ -4,55 +4,44 @@ import React, { useRef, useState } from 'react';
 import Highlighter from 'react-highlight-words';
 const data = [
   {
-    key: '42000',
+    key: '1',
     question_id: 42000,
     image_id:42,
     question_type:'what color',
     question:'What color are the gym shoes?',
     length: 6,
-    answer:'white',
+    answer:white,
   },
   {
-    key: '42001',
+    key: '2',
     question_id: 42001,
     image_id:42,
     question_type:'is there a',
     question:'Is there a red sandal here?',
     length: 6,
-    answer:'yes',
+    answer:yes,
   },  
   {
-    key: '42002',
+    key: '3',
     question_id: 42002,
     image_id:42,
     question_type:'what color',
     question:'What color is the flip flop?',
     length: 6,
-    answer:'red',
+    answer:red,
   },  
 ];
-var cooperate_value=['42000'];
-var cooperate_name=['question_id'];
 
-
-const Detail = () => {
+const Anttable = () => {
   const [searchText, setSearchText] = useState('');
   const [searchedColumn, setSearchedColumn] = useState('');
   const searchInput = useRef(null);
+
   const handleSearch = (selectedKeys, confirm, dataIndex) => {
-    console.log(selectedKeys);
     confirm();
-    console.log(confirm({
-      closeDropdown: false,
-    }));
     setSearchText(selectedKeys[0]);
     setSearchedColumn(dataIndex);
   };
-
- /* if (cooperate_value!=[]){
-    handleSearch(cooperate_value,confirm,cooperate_name)
-  }*/
-
 
   const handleReset = (clearFilters) => {
     clearFilters();
@@ -150,7 +139,7 @@ const Detail = () => {
       title: 'Question id',
       dataIndex: 'question_id',
       key: 'question_id',
-      width: '15%',
+      width: '30%',
       ...getColumnSearchProps('question_id'),
       render: (text) => <a>{text}</a>,
     },
@@ -158,7 +147,7 @@ const Detail = () => {
       title: 'Image id',
       dataIndex: 'image_id',
       key: 'image_id',
-      width: '15%',
+      width: '20%',
       ...getColumnSearchProps('image_id'),
     },
     {
@@ -171,7 +160,6 @@ const Detail = () => {
         title: 'Question',
         dataIndex: 'question',
         key: 'question',
-        width: '25%',
         ...getColumnSearchProps('question'),
       },
     {
@@ -179,8 +167,6 @@ const Detail = () => {
         dataIndex: 'length',
         key: 'length',
         ...getColumnSearchProps('length'),
-        sorter: (a, b) => a.address.length - b.address.length,
-      sortDirections: ['descend', 'ascend'],
     }, 
     {
         title: 'Answer',
@@ -192,4 +178,5 @@ const Detail = () => {
   return <Table columns={columns} dataSource={data} />;
 };
 
-export  {Detail};
+export default Anttable;
+  

@@ -4,8 +4,8 @@ import { StackedBar } from "../graphs/StackedBar";
 import { SunBurst } from "../graphs/Sunburst";
 import React from "react";
 import ReactDOM from 'react-dom/client';
-import { data } from "jquery";
-import {$,jQuery} from 'jquery';
+
+
 
 
 export class QuesPes extends React.Component{
