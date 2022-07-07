@@ -8,25 +8,30 @@ import{ Detail } from './Block/Detail';
 import { WordsClouds } from './graphs/WordsCloud';
 import { StackedBar } from './graphs/StackedBar';
 import * as echarts from 'echarts/core';
-
 import data from "./Data/Abstract.json";
+
+import QuesAbsData from './Data/SunburstAbstract.json';
+import QuesRealData from './Data/SunburstReal.json';
+import QuesTotalData from './Data/SunburstTot.json';
 
 const { Header, Footer, Sider, Content } = Layout;
 const { Search } = Input;
 const onSearch = (value) => console.log(value);
-
 
 export class App extends React.Component{
   constructor(props){
     super(props)
     this.state={
       dataGet: 0,
-      totalData:data,
+      totalData: data,
+      totalQuesData: QuesTotalData,
+      absQuesData: QuesAbsData,
+      realQuesData: QuesRealData,
       overviewRender:'',
       isQuesPes:1
     }
   }
-  
+
   ShowComponent(block){
       this.setState({
         overviewRender:block
@@ -41,16 +46,17 @@ export class App extends React.Component{
 
   renderComponent = ()=>{
     switch(this.state.overviewRender){
-      case 'QuesPes': return <QuesPes data = {this.state.totalData}/>
+      case 'QuesPes': return <QuesPes SunburstData = {this.state.totalQuesData}/>
       case 'AnsPes' :return <AnsPes data = {this.state.totalData}/>
-      case 'QuesComp' : return <QuesComp data = {this.state.totalData}/>
+      case 'QuesComp' : return <QuesComp data = {this.state.QuesRealData}/>
       case 'AnsComp' : return <AnsComp data = {this.state.totalData}/>
-      default : return <QuesPes data = {this.state.props}/>
+      default : return <QuesPes data = {this.state.totalData}/>
     }
   }
 
   render(){
     //if(this.state.dataGet === 0) this.getData(); 
+    console.log(this.state.totalData);
     return (
       <div id = "Apps">
         <Layout>
