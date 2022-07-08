@@ -15,3 +15,10 @@
     left: 320px;
     top:100px;
 }
+
+#wordsclouds{
+    position:absolute;
+    left:1250px;
+    top:50px;
+
+}

@@ -77,7 +77,6 @@ export class App extends React.Component{
           <Layout>
             <Header><span>VQA数据可视化分析</span></Header>
             <Content id = "Overview">
-            <WordsClouds id='wordclouds' style='float=left'></WordsClouds>
               {this.renderComponent()}
              
             </Content>
