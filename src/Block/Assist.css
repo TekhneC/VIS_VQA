@@ -1,7 +1,11 @@
 #radar{
-    padding: 2%;
+    margin: 25px;
+    position: absolute;
+    top: 340px;
 }
-
-#line{
+#title{
+    font-weight:bolder;
+    text-align: center;
+    margin: 2em;
     padding: 2%;
 }

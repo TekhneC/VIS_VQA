@@ -18,9 +18,9 @@ class Assist extends React.Component{
     }    
     render(){
         return(
-            <div id>
-                <Radar id = "radar" caps = "答案分布" leg = "答案数量"></Radar>
-                <Line id = "line" data = {this.props.Data}></Line>
+            <div>
+                <div id = "title">答案分布情况</div>
+                <Radar id = "radar" ></Radar>
             </div>
         ); 
     }

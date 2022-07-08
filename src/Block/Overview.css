@@ -16,9 +16,34 @@
     top:100px;
 }
 
+
 #wordsclouds{
     position:absolute;
     left:1250px;
     top:50px;
+}
+
+
+
+    #AnsConfiBar{
+    position: absolute;
+    left: 320px;
+    top: 100px;
+}
+
+#AnsColor{
+    position: relative;
+    left: 50%;
+}
+
+#AnsNum{
+    position: relative;
+    left: 50%;
+}
+
+#LineQues{
+    position:relative;
+    left:50%;
+    top: 20px;
 
 }

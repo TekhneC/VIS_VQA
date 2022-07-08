@@ -2,6 +2,7 @@ import { SearchOutlined } from '@ant-design/icons';
 import { Button, Input, Space, Table } from 'antd';
 import React, { useRef, useState } from 'react';
 import Highlighter from 'react-highlight-words';
+
 const data = [
   {
     key: '42000',
@@ -48,11 +49,6 @@ const Detail = () => {
     setSearchText(selectedKeys[0]);
     setSearchedColumn(dataIndex);
   };
-
- /* if (cooperate_value!=[]){
-    handleSearch(cooperate_value,confirm,cooperate_name)
-  }*/
-
 
   const handleReset = (clearFilters) => {
     clearFilters();

@@ -44,6 +44,21 @@ export class WordsClouds extends React.Component{
         CloudCharts = echarts.init(chartDom,null,{width :550 ,height: 400 });
         var option;
         option = {
+          title: {
+            text: this.props.title,
+            subtext: "出于显示效果和性能考虑，\n占比低于0.05%的词语不予以显示。",
+            textStyle: {
+              fontSize: 16,
+              fontFamily:['STZhongsong','monospace','Impact'],
+              align: 'center',
+              fontWeight: 'bolder' ,
+              color: '#416dff',
+            },
+            subtextStyle: {
+              fontFamily:['STZhongsong','monospace','Impact'],
+              align: 'center'
+            }
+          },
             tooltip: {},
             toolbox: {
               feature: {

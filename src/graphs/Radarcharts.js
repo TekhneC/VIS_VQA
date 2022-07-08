@@ -39,11 +39,31 @@ export class Radar extends React.Component{
 
     getOption = () => {
         var chartDom = document.getElementById(this.props.id);
-        RadarCharts = echarts.init(chartDom,null,{width :250 ,height: 200 });
+        RadarCharts = echarts.init(chartDom,null,{width :200 ,height: 200});
         var option;
-        option = {
+        option = {  
             title: {
-                    text: this.props.caps
+                text: this.props.title,
+                subtext: "",
+                textStyle: {
+                fontSize: 16,
+                    fontFamily:['STZhongsong','monospace','Impact'],
+                    align: 'center',
+                    fontWeight: 'bolder' ,
+                    color: '#416dff',
+                },
+                subtextStyle: {
+                    fontFamily:['STZhongsong','monospace','Impact'],
+                    align: 'center'
+                }
+            },
+            textStyle:{
+                fontFamily:['STZhongsong','monospace','Impact'],
+                fontWeight: 'bolder' ,
+                color: '#1C5ABE'
+            },
+                legend: {
+                    data: [this.props.leg]
                 },
                 radar: {
                     // shape: 'circle', 需要读入和处理json文件

@@ -30,6 +30,7 @@ export class SunBurst extends React.Component{
             type: 'continuous',
             min: 0,
             max: this.props.max,
+            text: [this.props.max.toString(),'0'],
             inRange: {
               color: ['#2F93C8', '#AEC48F', '#FFDB5C', '#F98862']
             }
