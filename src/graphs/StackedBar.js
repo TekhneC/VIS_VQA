@@ -57,16 +57,16 @@ export class StackedBar extends React.Component{
             },
             title: {
               text: this.props.title,
-              subtext: '',
+              subtext: this.props.subtext,
               textStyle: {
                 fontSize: 16,
-                fontFamily:['STZhongsong','monospace','Impact'],
+                fontFamily:['FZFengYKSJ','monospace','Impact'],
                 align: 'center',
                 fontWeight: 'bolder' ,
                 color: '#416dff',
               },
               subtextStyle: {
-                fontFamily:['STZhongsong','monospace','Impact'],
+                fontFamily:['FZFengYKSJ','monospace','Impact'],
                 align: 'center'
               }
             },
@@ -94,7 +94,7 @@ export class StackedBar extends React.Component{
               {
                 type:'value'
               }
-            ], 
+            ],
             toolbox: {
                 show: true,
                 feature: {
@@ -105,6 +105,7 @@ export class StackedBar extends React.Component{
                 }
             },
             series: this.props.series
+              
           };
         option && BarCharts.setOption(option);
     }

@@ -6,6 +6,7 @@ import React from "react";
 import ReactDOM from 'react-dom/client';
 import SundataReal from '../Data/SunburstReal.json';
 import SundataAbs from '../Data/SunburstAbstract.json';
+
 import './Overview.css';
 import { WordsClouds } from "../graphs/WordsCloud";
 
@@ -27,6 +28,7 @@ export class AnsPes extends React.Component{
             <StackedBar id = "AnsConfi" xdata = {ConfiAnsRealX} series = {ConfiAnsSeries}></StackedBar>
             <StackedBar id = "AnsColor" title = "颜色类回答分布" xdata = {TypeAnsColorX} series = {TypeAnsColorSeries} rotate = {45}></StackedBar>
             <StackedBar id = "AnsNum" title = "数字类回答分布" xdata = {TypeAnsNumX} series = {TypeAnsNumSeries}></StackedBar>
+            <WordsClouds id='wordsclouds' style='position:absolute'></WordsClouds>
             </div>
         )
     }
@@ -38,16 +40,6 @@ export class QuesComp1 extends React.Component{
             <div id = "QuesComp1">
             <SunBurst id = "SunQuesCompReal" data = {SundataReal} max = {87868} title = "Real Image 首三词"></SunBurst>
             <SunBurst id = "SunQuesCompAbs" data = {SundataAbs} max = {11691}  title = "Abstract Image 首三词"></SunBurst>
-            </div>
-        )
-    }
-}
-
-export class QuesComp2 extends React.Component{
-    render(){
-        return (
-            <div id = "QuesComp2">
-                <StackedBar id = "BarQuesComp"></StackedBar>
             </div>
         )
     }
@@ -278,3 +270,85 @@ const LengthRealSeries=[
         data:[9,7506,34455,64610,52127,38063,25645,12388,6704,3511,1757,981,561,351,191,100,45,6,1,2,1]
     }
 ]
+
+//丑陋堆叠
+//real
+
+/*data: ['real number', 'abstract number']
+
+
+[
+    {
+    name: '0',
+    type: 'bar',
+    stack:'x',
+    emphasis: {
+      focus: 'series'
+    },
+    data: [0.084918060,0.055969160]
+  },
+  {
+    name: '1',
+    type: 'bar',
+    stack:'x',
+    emphasis: {
+      focus: 'series'
+    },
+    data: [0.231730804 ,0.229466329 ]
+  },
+  {
+    name: '2',
+    type: 'bar',
+    stack:'x',
+    emphasis: {
+      focus: 'series'
+    },
+    data: [0.227767828,0.416311288 ]
+  },
+  {
+    name: '3',
+    type: 'bar',
+    stack:'x',
+    emphasis: {
+      focus: 'series'
+    },
+    data: [0.116423316,0.146247440 ]
+  },
+  {
+    name: '4',
+    type: 'bar',
+    stack:'x',
+    emphasis: {
+      focus: 'series'
+    },
+    data: [0.079664537,0.079363932]
+  },
+  {
+    name: '5',
+    type: 'bar',
+    stack:'x',
+    emphasis: {
+      focus: 'series'
+    },
+    data: [0.043048711,0.041657632 ]
+  },
+  {
+    name: '6',
+    type: 'bar',
+    stack:'x',
+    emphasis: {
+      focus: 'series'
+    },
+    data: [0.033645580,0]
+  },
+  {
+    name: 'other',
+    type: 'bar',
+    stack:'x',
+    emphasis: {
+      focus: 'series'
+    },
+    data: [0.182801164,0.030984219]
+  },
+]
+*/

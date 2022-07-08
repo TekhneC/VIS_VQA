@@ -17,7 +17,7 @@ import QuesTotalData from './Data/SunburstTot.json';
 const { Header, Footer, Sider, Content } = Layout;
 const { Search } = Input;
 const onSearch = (value) => console.log(value);
-const Pes = ['QuesComp1','QuesComp2','AnsComp'];
+const Pes = ['QuesComp1','AnsComp'];
 
 export class App extends React.Component{
   constructor(props){
@@ -38,10 +38,6 @@ export class App extends React.Component{
             },
             {
               key: '1',
-              label: '问题长度与词云对比',
-            },
-            {
-              key: '2',
               label: '答案数据对比',
             },
           ]}
@@ -74,7 +70,6 @@ export class App extends React.Component{
       case 'QuesPes': return <QuesPes SunburstData = {this.state.totalQuesData}/>
       case 'AnsPes' :return <AnsPes/>
       case 'QuesComp1' : return <QuesComp1 data = {this.state.QuesRealData}/>
-      case 'QuesComp2' : return <QuesComp2 data/>
       case 'AnsComp' : return <AnsComp data = {this.state.totalData}/>
       default : return <QuesPes data = {this.state.totalData}/>
     }
