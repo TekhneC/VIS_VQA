@@ -32,7 +32,7 @@ export class AnsPes extends React.Component{
             </WordsClouds>
 
             <StackedBar id = "AnsConfiBar" ></StackedBar>
-            <StackedBar id = "AnsColor" title = "颜色类回答分布" xdata = {TypeAnsColorX} series = {TypeAnsColorSeries}></StackedBar>
+            <StackedBar id = "AnsColor" title = "颜色类回答分布" xdata = {TypeAnsColorX} series = {TypeAnsColorSeries} rotate = {45}></StackedBar>
             <StackedBar id = "AnsNum" title = "数字类回答分布" xdata = {TypeAnsNumX} series = {TypeAnsNumSeries}></StackedBar>
 
             </div>

@@ -80,7 +80,11 @@ export class StackedBar extends React.Component{
             xAxis: [
               {
                 type: 'category',
-                data: this.props.xname
+                data: this.props.xdata,
+                axisLabel:{
+                  interval:0,
+                  rotate: this.props.rotate === undefined ? 0 : this.props.rotate
+                }
               }
             ],
             yAxis: [

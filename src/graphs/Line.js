@@ -104,7 +104,10 @@ export class Line extends React.Component{
             xAxis: {
               type: 'category',
               boundaryGap: false,
-              data: this.props.xdata
+              data: this.props.xdata,
+              axisLabel:{
+                interval:0
+              }
             },
             yAxis: {
               type: 'value'
