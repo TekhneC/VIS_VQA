@@ -38,6 +38,7 @@ export class Radar extends React.Component{
     }
 
     getOption = () => {
+        console.log(this.p .rotate);
         var chartDom = document.getElementById(this.props.id);
         RadarCharts = echarts.init(chartDom,null,{width :200 ,height: 200});
         var option;
