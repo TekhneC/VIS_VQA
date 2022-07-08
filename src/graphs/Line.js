@@ -81,9 +81,8 @@ export class Line extends React.Component{
                 type:'cross'
               }
             },
-
             legend: {
-              data: ['Len']
+              data: ['Real','Abs','Total']
             },
             grid: {
               left: '3%',

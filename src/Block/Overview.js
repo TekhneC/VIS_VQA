@@ -25,10 +25,10 @@ export class AnsPes extends React.Component{
     render(){
         return (
             <div>
-            <StackedBar id = "AnsConfi" xdata = {ConfiAnsRealX} series = {ConfiAnsSeries}></StackedBar>
+            <StackedBar id = "AnsConfi" title = "答案确信度" subtext = "联合答案确信度和人们的答案一致度进行分析。" xdata = {ConfiAnsRealX} series = {ConfiAnsSeries}></StackedBar>
             <StackedBar id = "AnsColor" title = "颜色类回答分布" xdata = {TypeAnsColorX} series = {TypeAnsColorSeries} rotate = {45}></StackedBar>
             <StackedBar id = "AnsNum" title = "数字类回答分布" xdata = {TypeAnsNumX} series = {TypeAnsNumSeries}></StackedBar>
-            <WordsClouds id='wordsclouds' style='position:absolute'></WordsClouds>
+            <WordsClouds id='wordsclouds'title = "关键词云分布" style='position:absolute'></WordsClouds>
             </div>
         )
     }

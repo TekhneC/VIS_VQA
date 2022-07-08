@@ -60,13 +60,13 @@ export class StackedBar extends React.Component{
               subtext: this.props.subtext,
               textStyle: {
                 fontSize: 16,
-                fontFamily:['FZFengYKSJ','monospace','Impact'],
+                fontFamily:['STZhongsong','monospace','Impact'],
                 align: 'center',
                 fontWeight: 'bolder' ,
                 color: '#416dff',
               },
               subtextStyle: {
-                fontFamily:['FZFengYKSJ','monospace','Impact'],
+                fontFamily:['STZhongsong','monospace','Impact'],
                 align: 'center'
               }
             },

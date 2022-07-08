@@ -20,7 +20,7 @@
 #wordsclouds{
     position:absolute;
     top: 300px;
-    left: 300px;
+    left: 340px;
 }
 
 #AnsConfi{
@@ -31,6 +31,7 @@
 
 #AnsColor{
     position: relative;
+    top: 30px;
     left: 50%;
 }
 
