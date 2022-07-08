@@ -24,7 +24,7 @@ export class AnsPes extends React.Component{
     render(){
         return (
             <div>
-            <StackedBar id = "AnsConfiBar" ></StackedBar>
+            <StackedBar id = "AnsConfi" xdata = {ConfiAnsRealX} series = {ConfiAnsSeries}></StackedBar>
             <StackedBar id = "AnsColor" title = "颜色类回答分布" xdata = {TypeAnsColorX} series = {TypeAnsColorSeries} rotate = {45}></StackedBar>
             <StackedBar id = "AnsNum" title = "数字类回答分布" xdata = {TypeAnsNumX} series = {TypeAnsNumSeries}></StackedBar>
             </div>
@@ -57,8 +57,8 @@ export class AnsComp extends React.Component{
     render(){
         return (
             <div>
-            <StackedBar id = "TypeRealConfi" xdata = {ConfiAnsRealX} series = {ConfiAnsRealSeries}></StackedBar>
-            
+            <StackedBar id = "RealConfi" xdata = {ConfiAnsRealX} series = {ConfiAnsRealSeries} title = "Real 信度"></StackedBar>
+            <StackedBar id = "AbsConfi" xdata = {ConfiAnsRealX} series = {ConfiAnsAbsSeries} title = "Abs 信度"></StackedBar>
             </div>    
         )
     }
@@ -262,10 +262,6 @@ const ConfiAnsSeries = [
   }
 ]
 
-
-
-//length
-//real
 const LengthX = ['2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23']
 const LengthRealSeries=[
     {

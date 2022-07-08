@@ -99,7 +99,6 @@ export class StackedBar extends React.Component{
                 show: true,
                 feature: {
                     mark: { show: true },
-                    dataView: { show: true, readOnly: false },
                     magicType: { show: true, type: ['line', 'bar'] },
                     restore: { show: true },
                     saveAsImage: { show: true }
@@ -112,7 +111,7 @@ export class StackedBar extends React.Component{
    
     render(){
         return (
-            <div id = {this.props.id} style={{height: 200,width: 400}}></div>
+            <div id = {this.props.id} style={{height: 200,width: 500}}></div>
         )
     }
 }
